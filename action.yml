@@ -1,0 +1,23 @@
+name: 'Jekyll Blog Archive'
+author: 'Kannan Suresh'
+description: 'Enables archive feature to your Jekyll blog on GitHub pages. Modified by niquapod'
+
+inputs:
+  archive_url:
+    description: 'Url to archive data of the blog. To delete archive folders, pass delete_archives.'
+    required: true
+  archive_folder_path:
+    description: 'Path to the _archives folder of the blog.'
+    required: true
+    default: '_archives'
+
+runs:
+  using: docker
+  image: dockerfile
+  args:
+    - ${{ inputs.archive_url }}
+    - ${{ inputs.archive_folder_path }}
+
+branding:
+  icon: 'archive'
+  color: 'blue'
